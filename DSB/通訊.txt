@@ -1,0 +1,12 @@
+ Fs=16000;
+ N=Fs*10;
+ FFTsize=1024
+ y=wavrecord(N,Fs);
+ Y=spectrum(y,FFTsize);
+ 
+ Freq=[0:Fs/FFTsize:Fs/2];
+ Time=[1:N]/Fs;
+ subplot(2,1,1),plot(Time,y),
+ ylabel('Amplitude'),xlabel('Time(s)');
+ subplot(2,1,2),plot(Freq,10*log10(Y/max(Y))),
+ ylabel('Spectrum(dB)'),xlabel('Frequency(Hz)');
